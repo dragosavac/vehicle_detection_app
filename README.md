@@ -15,7 +15,7 @@ Inference app is the folder where I've stored Models, Services, Serializers and 
 
 After creating a superuser, you'll be able to see all values stored in database on localhost:8000/admin
 
-In training_model fie, you can see explained jupyter notebook calculation for predicting position of truck in the lane
+In training_model file, you can see explained jupyter notebook calculation for predicting position of truck in the lane
 
 In utilities folder, you can see functions for predicting vehicle lane, along with constants.
 

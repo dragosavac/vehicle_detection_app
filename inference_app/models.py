@@ -20,9 +20,10 @@ class InferenceModel(models.Model):
 
 
 class InferenceInstance(models.Model):
+    camera = models.ForeignKey('Camera', on_delete=models.CASCADE, null=True)
     calculation_model = models.ForeignKey('InferenceModel', on_delete=models.CASCADE, null=True)
     calculation_datetime = models.DateTimeField(null=False)
-    value = models.CharField(max_length=10000, null=False, default='')
+    value = models.CharField(max_length=10000, null=False)
     created_at = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):

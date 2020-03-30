@@ -1,0 +1,17 @@
+Django>=2.0,<3.0
+psycopg2>=2.7,<3.0
+python-dotenv
+django-countries
+djangorestframework
+gunicorn
+
+# dev dependecies
+black
+isort
+pytest
+pytest-django
+factory_boy
+ipython  # for better console
+
+tensorflow
+tensorflow-object-detection-api

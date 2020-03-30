@@ -1,0 +1,37 @@
+version: "3"
+
+services:
+  db:
+    image: postgres
+    volumes:
+      - app:/var/lib/postgresql/data
+    environment:
+      POSTGRES_USER: django
+      POSTGRES_PASSWORD: djangopass
+      POSTGRES_DB: db
+  app:
+    build: .
+    command: python manage.py runserver 0.0.0.0:8000
+    volumes:
+      - .:/app
+    ports:
+      - "8000:8000"
+    depends_on:
+      - db
+    environment:
+      DJANGO_SETTINGS_MODULE: object_detection_app.settings.local
+    env_file: .env
+  # redis:
+  #   container_name: "redis"
+  #   image: 'redis:3.2.0'
+  #   ports:
+  #     - "6379:6379"
+  #   volumes:
+  #     - "redisdata:/data"
+  # rabbitmq:
+  #   image: rabbitmq:3
+  #   ports:
+  #     - 5672:5672
+volumes:
+  app:
+  # redisdata:

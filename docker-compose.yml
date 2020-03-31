@@ -21,17 +21,5 @@ services:
     environment:
       DJANGO_SETTINGS_MODULE: object_detection_app.settings.local
     env_file: .env
-  # redis:
-  #   container_name: "redis"
-  #   image: 'redis:3.2.0'
-  #   ports:
-  #     - "6379:6379"
-  #   volumes:
-  #     - "redisdata:/data"
-  # rabbitmq:
-  #   image: rabbitmq:3
-  #   ports:
-  #     - 5672:5672
 volumes:
   app:
-  # redisdata:

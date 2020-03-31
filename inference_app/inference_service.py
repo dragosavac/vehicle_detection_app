@@ -10,6 +10,7 @@ from utilities.predict_vehicle_lane import predict_vehicle_lane
 from utilities.constants import *
 import numpy as np
 from collections import Counter
+from utilities.count_statistics import count_statistics
 
 
 class InferenceService:
@@ -30,7 +31,7 @@ class InferenceService:
         model_output = json.loads(inference_result)
         vehicles_in_lane_list = predict_vehicle_lane(model_output, angles, distances)
         vehicles_in_lane_dict = Counter(vehicles_in_lane_list)
-        vehicles_in_lane_order_dict = {index: vehicles_in_lane_dict[index] for index in range(10)}
+        vehicles_in_lane_order_dict = {index+1: vehicles_in_lane_dict[index] for index in range(10)}
 
         cls._save_inference(inference_result=vehicles_in_lane_order_dict, date=date)
 
@@ -44,24 +45,9 @@ class InferenceService:
     def get_stats_for_datetime_range(cls, start_date: datetime, end_date: datetime) -> dict:
         inference_instances = InferenceInstance.objects.filter(calculation_datetime__gt=start_date,
                                                                calculation_datetime__lt=end_date).all()
-        data = np.ndarray(shape=(len(inference_instances), 10))
-        for i, instance in enumerate(inference_instances):
-            l = instance.value.split(',')
-            values = [int(item.strip("}").split(": ")[1]) for item in l]
-            data[i] = np.array(values)
-        maximum = np.amax(data, axis=0)
-        minimum = np.amax(data, axis=0)
-        mean = np.mean(data, axis=0)
-        median = np.median(data, axis=0)
-        std = np.std(data, axis=0)
-        stats_per_lane_dict = {
-            'maximum': maximum,
-            'minimum': minimum,
-            'median': median,
-            'mean': mean,
-            'standard_deviation': std
-        }
-        return stats_per_lane_dict
+        stat_results_per_lane = count_statistics(inference_instances)
+
+        return stat_results_per_lane
 
     @classmethod
     def _save_inference(cls, inference_result: dict, date: datetime):

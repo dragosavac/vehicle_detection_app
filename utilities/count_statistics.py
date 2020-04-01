@@ -4,9 +4,12 @@ def count_statistics(query_results):
     data = np.ndarray(shape=(len(query_results), 10))
 
     for i, instance in enumerate(query_results):
-        l = instance.value.split(',')
-        values = [int(item.strip("}").split(": ")[1]) for item in l]
-        data[i] = np.array(values)
+        try:
+            l = instance.value.split(',')
+            values = [int(item.strip("}").split(": ")[1]) for item in l]
+            data[i] = np.array(values)
+        except:
+            pass
 
     maximum = np.amax(data, axis=0)
     minimum = np.amax(data, axis=0)

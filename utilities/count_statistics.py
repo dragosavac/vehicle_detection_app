@@ -1,4 +1,5 @@
 import numpy as np
+from collections import Counter
 
 def count_statistics(query_results):
     data = np.ndarray(shape=(len(query_results), 10))
@@ -12,7 +13,7 @@ def count_statistics(query_results):
             pass
 
     maximum = np.amax(data, axis=0)
-    minimum = np.amax(data, axis=0)
+    minimum = np.amin(data, axis=0)
     mean = np.mean(data, axis=0)
     median = np.median(data, axis=0)
     std = np.std(data, axis=0)

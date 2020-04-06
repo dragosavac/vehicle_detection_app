@@ -37,7 +37,6 @@ class InferenceService:
 
         final_output = {}
         final_output['trucks per lane'] = vehicles_in_lane_order_dict
-        final_output['date'] = date
 
         return final_output
 

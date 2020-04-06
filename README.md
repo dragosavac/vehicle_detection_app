@@ -36,6 +36,12 @@ After that, you'll be able to test Statistics endpoint by hitting a GET endpoint
 127.0.0.1:8000/api/stats?start_date=2020-03-25 15:15:14.123&end_date=2020-03-30 15:15:16.123
 ```
 
+Examples for testing API could be found documented on the link below:
+
+```
+https://documenter.getpostman.com/view/4800952/SzYbzdP5?version=latest
+```
+
 
 Steps for running the project:
 

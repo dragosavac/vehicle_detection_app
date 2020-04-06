@@ -21,9 +21,9 @@ def count_statistics(query_results):
     stats_per_lane_dict = {
         'maximum': maximum,
         'minimum': minimum,
-        'median': median,
-        'mean': mean,
-        'standard_deviation': std
+        'median': np.around(median, 2),
+        'mean': np.around(mean, 2),
+        'standard_deviation': np.around(std, 2)
     }
 
     return stats_per_lane_dict

@@ -58,21 +58,21 @@ multiple lanes to deliver their cargo.
 
 Here are a couple of examples of input images:
 
-![input1](./images/port_elizibeth_webcam_2018-10-15T10-04-02.jpg)
+![input1](infer_model/images/port_elizibeth_webcam_2018-10-15T10-04-02.jpg)
 
-![input2](./images/port_elizibeth_webcam_2018-10-15T12-36-02.jpg)
+![input2](infer_model/images/port_elizibeth_webcam_2018-10-15T12-36-02.jpg)
 
-![input3](./images/port_elizibeth_webcam_2018-10-15T13-58-01.jpg)
+![input3](infer_model/images/port_elizibeth_webcam_2018-10-15T13-58-01.jpg)
 
 For each object detected, the model outputs 4 bounding box coordinates, a class
 label and a confidence score in `[0, 1.0]` range. If we were to draw bounding boxes on
 top of original image, we would get something like this:
 
-![input1-pred](./images/port_elizibeth_webcam_2018-10-15T10-04-02-pred.jpg)
+![input1-pred](infer_model/images/port_elizibeth_webcam_2018-10-15T10-04-02-pred.jpg)
 
-![input2-pred](./images/port_elizibeth_webcam_2018-10-15T12-36-02-pred.jpg)
+![input2-pred](infer_model/images/port_elizibeth_webcam_2018-10-15T12-36-02-pred.jpg)
 
-![input3-pred](./images/port_elizibeth_webcam_2018-10-15T13-58-01-pred.jpg)
+![input3-pred](infer_model/images/port_elizibeth_webcam_2018-10-15T13-58-01-pred.jpg)
 
 To recap:
 - model input is a 320x240 JPEG image

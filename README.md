@@ -97,9 +97,8 @@ this model to **count the number of trucks in each lane**. Additionally,
 service is also calculating traffic load statistics per lane for custom
 date/time ranges.
 
-Inference service is a web app - backend only, no frontend - that serves
-requests. Your service should be backed by a database. The service you are building
-must have the following two endpoints:
+Vehicle detection app is a web app - backend only, no frontend - that serves
+requests. App is backed by a Postgres database and it has two endpoints:
 
 1. **Inference endpoint**. Each request to this endpoint contains a single
    input image, and time when the image was taken. Steps this endpoint is passing through:
